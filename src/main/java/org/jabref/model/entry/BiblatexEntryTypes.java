@@ -170,6 +170,21 @@ public class BiblatexEntryTypes {
             .withDetailFields(INCOLLECTION.getSecondaryOptionalFields())
             .withRequiredFields(INCOLLECTION.getRequiredFields())
             .build();
+    
+    private static final BibEntryType DATASET = new BibEntryTypeBuilder()
+        .withType(StandardEntryType.Dataset)
+        .withImportantFields(StandardField.SUBTITLE, StandardField.TITLEADDON, StandardField.LANGUAGE,
+                    StandardField.EDITION, StandardField.TYPE, StandardField.SERIES, StandardField.NUMBER, 
+                    StandardField.VERSION, StandardField.NOTE, StandardField.ORGANIZATION, StandardField.PUBLISHER,
+                    StandardField.LOCATION, StandardField.ADDENDUM, StandardField.PUBSTATE, StandardField.DOI,
+                    StandardField.EPRINT, StandardField.EPRINTCLASS, StandardField.EPRINTCLASS, StandardField.EPRINTTYPE,
+                    StandardField.URL, StandardField.URLDATE)
+        .withRequiredFields(StandardField.AUTHOR, StandardField.TITLE, StandardField.DATE)
+        .withDetailFields(StandardField.SUBTITLE, StandardField.TITLEADDON, StandardField.LANGUAGE, StandardField.NOTE,
+                    StandardField.LOCATION, StandardField.ISBN, StandardField.CHAPTER, StandardField.PAGES,
+                    StandardField.PAGETOTAL, StandardField.ADDENDUM, StandardField.PUBSTATE, StandardField.DOI, StandardField.EPRINT,
+                    StandardField.EPRINTCLASS, StandardField.EPRINTTYPE, StandardField.URL, StandardField.URLDATE)
+        .build();
 
     private static final BibEntryType MANUAL = new BibEntryTypeBuilder()
             .withType(StandardEntryType.Manual)
@@ -331,6 +346,20 @@ public class BiblatexEntryTypes {
             .withRequiredFields(StandardField.ENTRYSET, StandardField.CROSSREF)
             .build();
 
+    private static final BibEntryType SOFTWARE = new BibEntryTypeBuilder()
+        .withType(StandardEntryType.Software)
+        .withImportantFields(StandardField.SUBTITLE, StandardField.TITLEADDON, StandardField.LANGUAGE,
+                StandardField.HOWPUBLISHED, StandardField.TYPE, StandardField.VERSION, StandardField.NOTE, 
+                StandardField.ORGANIZATION, StandardField.LOCATION, StandardField.MONTH, StandardField.ADDENDUM,
+                StandardField.PUBSTATE, StandardField.DOI, StandardField.EPRINT, StandardField.EPRINTCLASS,
+                StandardField.EPRINTTYPE, StandardField.URL, StandardField.URLDATE)
+        .withRequiredFields(StandardField.AUTHOR, StandardField.TITLE, StandardField.DATE)
+        .withDetailFields(StandardField.SUBTITLE, StandardField.TITLEADDON, StandardField.LANGUAGE,
+                StandardField.HOWPUBLISHED, StandardField.TYPE, StandardField.VERSION, StandardField.NOTE, 
+                StandardField.ORGANIZATION, StandardField.LOCATION, StandardField.MONTH, StandardField.ADDENDUM,
+                StandardField.PUBSTATE, StandardField.DOI, StandardField.EPRINTCLASS, StandardField.URL, StandardField.URLDATE)
+        .build();
+    
     private static final BibEntryType THESIS = new BibEntryTypeBuilder()
             .withType(StandardEntryType.Thesis)
             .withImportantFields(StandardField.SUBTITLE, StandardField.TITLEADDON, StandardField.CHAPTER,
@@ -342,11 +371,12 @@ public class BiblatexEntryTypes {
                     StandardField.PAGETOTAL, StandardField.ADDENDUM, StandardField.PUBSTATE, StandardField.DOI, StandardField.EPRINT,
                     StandardField.EPRINTCLASS, StandardField.EPRINTTYPE, StandardField.URL, StandardField.URLDATE)
             .build();
-
+    
     private static final BibEntryType UNPUBLISHED = new BibEntryTypeBuilder()
             .withType(StandardEntryType.Unpublished)
             .withImportantFields(StandardField.SUBTITLE, StandardField.TITLEADDON, StandardField.HOWPUBLISHED,
-                    StandardField.PUBSTATE, StandardField.URL, StandardField.URLDATE)
+                    StandardField.PUBSTATE, StandardField.URL, StandardField.URLDATE, StandardField.TYPE,
+                    StandardField.VENUE, StandardField.EVENTTITLE, StandardField.EVENTDATE)
             .withRequiredFields(StandardField.AUTHOR, StandardField.TITLE, StandardField.DATE)
             .withDetailFields(StandardField.SUBTITLE, StandardField.TITLEADDON, StandardField.LANGUAGE, StandardField.HOWPUBLISHED,
                     StandardField.NOTE, StandardField.LOCATION, StandardField.ADDENDUM, StandardField.PUBSTATE,
@@ -413,7 +443,7 @@ public class BiblatexEntryTypes {
             .build();
 
     public static final List<BibEntryType> ALL = Arrays.asList(ARTICLE, BOOK, MVBOOK, INBOOK, BOOKINBOOK, SUPPBOOK,
-            BOOKLET, COLLECTION, MVCOLLECTION, INCOLLECTION, SUPPCOLLECTION, MANUAL, MISC, ONLINE, PATENT, PERIODICAL,
+            BOOKLET, COLLECTION, DATASET, MVCOLLECTION, INCOLLECTION, SUPPCOLLECTION, MANUAL, MISC, ONLINE, PATENT, PERIODICAL,
             SUPPPERIODICAL, PROCEEDINGS, MVPROCEEDINGS, INPROCEEDINGS, REFERENCE, MVREFERENCE, INREFERENCE, REPORT, SET,
-            THESIS, UNPUBLISHED, CONFERENCE, ELECTRONIC, MASTERSTHESIS, PHDTHESIS, TECHREPORT, WWW);
+            SOFTWARE, THESIS, UNPUBLISHED, CONFERENCE, ELECTRONIC, MASTERSTHESIS, PHDTHESIS, TECHREPORT, WWW);
 }
